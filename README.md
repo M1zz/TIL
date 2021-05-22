@@ -11,7 +11,7 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 ### iOS-UIKit
 - [UIkit introduction - User Interface Objects 살펴보기](https://github.com/M1zz/TIL/blob/master/post/iOS/UIkit%20introduction%20-%20User%20Interface%20Objects%20살펴보기.md)
-- [NavigationController 뜯어보기 - 작성중]()
+- [UINavigationController의 구성요소가 떠오르지 않는 사람을 위한 글](https://github.com/M1zz/TIL/blob/master/post/iOS/UINavigationController의%20구성요소가%20떠오르지%20않는%20사람을%20위한%20글.md)
 - [TableViewController 뜯어보기 - 작성중]()
 - [ColloctionViewController 뜯어보기 - 작성중]()
 - [앱의 화면전환이 항상 헷갈릴 때 보는 글](https://github.com/M1zz/TIL/blob/master/post/iOS/%5BiOS%5D%20앱의%20화면전환이%20항상%20헷갈릴%20때%20보는%20글)
