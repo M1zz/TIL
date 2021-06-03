@@ -25,3 +25,6 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 ### iOS-data-modeling
 - [tableCell - 작성중](https://github.com/Instagram/IGListKit)
+
+### iOS-150-interviews
+- [[인터뷰질문 001] Swfit에서 dictionary와 array의 차이점이 무엇인가요?](https://github.com/M1zz/TIL/blob/master/post/Swift/%5B인터뷰질문%20001%5D%20Swfit에서%20dictionary와%20array의%20차이점이%20무엇인가요%3F.md)
