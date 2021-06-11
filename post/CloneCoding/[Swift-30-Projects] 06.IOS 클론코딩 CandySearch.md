@@ -7,7 +7,7 @@
 
 네비게이션 바의 색을 칠하는 방법은 [이전 프로젝트](https://dev200ok.blogspot.com/2021/05/swift-30-projects-05-ios-artistry.html)에서 익혔기 때문에 그대로 가져다 사용했습니다.
 
-<img src="./image/06/main.png" height="500">
+<img src="./image/06/main.PNG" height="500">
 <img src="./image/06/detail.png" height="500">
 
 메인 페이지에 가운데 로고를 넣고, 서치컨트롤러를 넣는데 고생을 했습니다. 결론적으로 가운데로고는 네비게이션 아이템에 뷰를 넣어서 이미지를 넣었습니다. 그리고 서치 컨트롤러는
