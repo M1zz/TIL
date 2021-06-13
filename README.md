@@ -28,3 +28,6 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 ### iOS-150-interviews
 - [[인터뷰질문 001] Swfit에서 dictionary와 array의 차이점이 무엇인가요?](https://github.com/M1zz/TIL/blob/master/post/Swift/%5B인터뷰질문%20001%5D%20Swfit에서%20dictionary와%20array의%20차이점이%20무엇인가요%3F.md)
+- [[[인터뷰질문 002] Swfit에서 class와 struct의 차이점이 무엇인가요?](https://github.com/M1zz/TIL/blob/master/post/iOS-150-interviews/%5B인터뷰질문%20002%5D%20Swfit에서%20class와%20struct의%20차이점이%20무엇인가요%3F.md)
+- [[인터뷰질문 003] tuples이란 무엇이고 어느 상황에서 유용하게 사용할 수 있습니까?](https://github.com/M1zz/TIL/blob/master/post/iOS-150-interviews/%5B인터뷰질문%20003%5D%20tuples이란%20무엇이고%20어느%20상황에서%20유용하게%20사용할%20수%20있습니까%3F.md)
+- [[인터뷰질문 004] Codable protocol이 하는 역할이 무엇인가요?](https://github.com/M1zz/TIL/blob/master/post/iOS-150-interviews/%5B인터뷰질문%20004%5D%20Codable%20protocol이%20하는%20역할이%20무엇인가요%3F.md)
