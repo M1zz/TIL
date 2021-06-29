@@ -82,8 +82,46 @@ let student1Fullname = try! JSONDecoder().decode(StudentFullname.self, from: stu
 print(student1Fullname.firstName)
 print(student1Fullname.lastName)
 ```
-의미를 해석해보면, `first_name`이라는 녀석을 파싱해야 할 때는, `firstName`로 처리 해주면 되겠죠
+의미를 해석해보면, `first_name`이라는 녀석을 파싱해야 할 때는, `firstName`로 처리 해주면 되겠죠.
 
+## 사용할 때의 문제점2
+만약 원래 내려오던 키가 내려오지 않는다면, `Swift.DecodingError.keyNotFound(CodingKeys(stringValue: "last_name", intValue: nil)`와 같은 키를 찾지 못하는 에러가 발생할 것 입니다.
+
+물론 `var lastName: String?`와 같은 방법으로 처리하는 해결책이 있을 수 있겠지만, 원래 스펙이 옵셔널이 아닌데 옵셔널로 처리하는 방법은 좋지 않습니다. 서버에서 발생한 오류겠지만, 실제 오류가 터지는 곳은 앱이니 앱에서 안전하게 처리할 수 있는 방법은 없는지 알아보겠습니다.
+
+```
+struct StudentFullname: Codable {
+    var firstName: String
+    var lastName: String
+
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        firstName = (try? values.decode(String.self, forKey: .firstName)) ?? "error first name"
+        lastName = (try? values.decode(String.self, forKey:.lastName)) ?? "error last name"
+    }
+}
+
+let studentFullname = """
+{
+    "first_name": "hyunho"
+}
+""".data(using: .utf8)!
+
+let student1Fullname = try! JSONDecoder().decode(StudentFullname.self, from: studentFullname)
+
+print(student1Fullname.firstName)
+print(student1Fullname.lastName)
+```
+
+위와 같이, 모델에서 직접 Decode 하면서, 값이 내려오지 않을 경우에 처리해주는 로직을 추가한다면, 값이 내려오지 않을 때에도 안전하게 처리할 수 있습니다.
+
+## 사용할 때의 문제점2-2
+값이 내려오긴 하는데 내려오지 않아야 할 값이 내려온다면 어떻게 할까요? 이전 예제는 아얘 아무값도 안내려 오는 것이지만, `required`인 값이 null로 내려온다면
 
 
 https://www.hackingwithswift.com/interview-questions/what-does-the-codable-protocol-do
