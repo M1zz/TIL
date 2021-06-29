@@ -120,12 +120,34 @@ print(student1Fullname.lastName)
 
 위와 같이, 모델에서 직접 Decode 하면서, 값이 내려오지 않을 경우에 처리해주는 로직을 추가한다면, 값이 내려오지 않을 때에도 안전하게 처리할 수 있습니다.
 
-## 사용할 때의 문제점2-2
-값이 내려오긴 하는데 내려오지 않아야 할 값이 내려온다면 어떻게 할까요? 이전 예제는 아얘 아무값도 안내려 오는 것이지만, `required`인 값이 null로 내려온다면
+값이 내려오긴 하는데 내려오지 않아야 할 값이 내려온다면 어떻게 할까요? 이전 예제는 아얘 아무값도 안내려 오는 것이지만, `required`인 값이 null로 내려온다면 마찬가지의 방법으로 에러인 상황을 안전하게 처리할 수 있다.
 
+## 도움을 받을 수 있는 방법
+디코딩이 생각대로 되지 않을 때, 어디서 부터 잘못되었는지 찾기 쉽지 않아서 공부한 방법을 하나 소개하겠습니다. 바로 모델에 `CustomDebugStringConvertible`을 채책해서 구현하는 것 입니다.
 
-https://www.hackingwithswift.com/interview-questions/what-does-the-codable-protocol-do
+```
+extension StudentFullname: CustomDebugStringConvertible {
+    var debugDescription: String {
+        var output: [String] = []
+        output.append("firstName : \(firstName)")
+        output.append("lastName : \(lastName)")
 
-Suggested approach: This protocol was introduced in Swift 4 to let us quickly and safely convert custom Swift types to and from JSON, XML, and similar.
+        return output.joined(separator: "\n")
+    }
+}
+```
+위와 같이 구현을 해놓으면, 현재 어떤 값에 문제가 있는지 한 눈에 들어오기 때문에 문제를 쉽게 파악할 수 있습니다. 앞으로 모델을 구현할 때, 같이 구현해 에러상황에서 스트레스를 받지 않고 문제를 해결할 수 있도록 해 놓아야 겠습니다.
 
-For bonus points talk about customization points such as key and date decoding strategies, the CodingKey protocol, and more, so that you're able to show you can handle a range of input and output styles
+```
+let studentFullname = """
+{
+    "first_name": "hyunho",
+}
+""".data(using: .utf8)!
+
+let student1Fullname = try! JSONDecoder().decode(StudentFullname.self, from: studentFullname)
+
+print(student1Fullname.debugDescription)
+// firstName : hyunho
+// lastName : error last name
+```
