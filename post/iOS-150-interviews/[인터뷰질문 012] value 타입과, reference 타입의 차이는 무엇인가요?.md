@@ -1,5 +1,15 @@
 # [인터뷰질문 012] value 타입과, reference 타입의 차이는 무엇인가요?
 
-Suggested approach: The best way to frame this discussion is likely to be classes vs structs: an instance of a class can have multiple owners, but an instance of a struct cannot.
+## 개념의 차이
+가장 쉽게 예를 들 수 있는 개념의 차이는 엑셀파일과 구글 스프레드 시트 입니다. 두 파일 다 문서를 같게 작성할 수 있는 문서 편집이 가능한 도구입니다.
 
-For bonus points mention that closures are also reference types, and the implications of that.
+내가 작성한 엑셀파일을 저장해서 상대방에게 전달 하면, 같은 내용의 파일이 하나 더 생겨서 전달이 됩니다. 이 때, 상대방이 전달받은 파일을 수정해도 독립적으로 수정되어 수정본이 생기는 것일 뿐 내가 작성한 내용이 변경되지는 않습니다. 이렇게 값을 전달해서 주는 타입을 `value type`이라고 합니다.
+
+반면에 구글 스프레드시트를 작성하고, 링크를 전달해서 상대방에게 전달 한 뒤, 상대방이 수정하면 어떻게 될까요? 상대방화면에서 수정된 내용이 그대로 내 눈앞에 보이는 화면이 실시간으로 변경되고, 결국 이전에 작업했던 내용은 없어진 수정된 내용만 남게 됩니다. 이렇게 주소값을 전달 해주는 타입을 `reference type`이라고 합니다.
+
+## class와 struct
+class의 인스턴스는 `reference type`입니다. 그렇기 때문에 인스턴스를 생성하고, 다른곳에서 수정하면 원래 사용되고 있었던 곳에서도 다 영향을 받게 되죠.
+
+그리고 struct의 인스턴스는 `value type`입니다. 인스턴스를 생성해서 사용하고, 다른곳에 전달해서 수정해도 원래 사용되고 있었던 곳에서는 영향을 받지 않습니다.
+
+추가적으로 closures는 `reference type`입니다. 그렇기 때문에 원하는 값을 사용하기 위해서 capture를 해야하죠. 그렇지 않으면 계속 값이 바뀔테니까요!
