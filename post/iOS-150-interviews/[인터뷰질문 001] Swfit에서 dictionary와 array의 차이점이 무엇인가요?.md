@@ -2,7 +2,7 @@
 
 ![arraydictionary](https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png)
 ## 데이터 접근 방식의 차이
-array는 정렬된 값들의 모임이고, dictionary는 정렬되지 않은 key-value 쌍의 값들의 모임입니다.
+array는 입력된 순서대로 정렬된 값들의 모임이고, dictionary는 입력된 순서대로는 정렬되지 않은 `key-value` 쌍의 값들의 모임입니다.
 그러므로 데이터에 접근하는 방법이 다릅니다.
 
 ```
