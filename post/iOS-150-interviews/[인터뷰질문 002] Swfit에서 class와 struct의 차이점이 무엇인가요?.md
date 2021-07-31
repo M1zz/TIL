@@ -1,14 +1,12 @@
 # [인터뷰질문 002] Swfit에서 class와 struct의 차이점이 무엇인가요?
 
-https://www.hackingwithswift.com/interview-questions/what-are-the-main-differences-between-classes-and-structs-in-swift
 ## 값 타입, 참조 타입
-많은 분들이 머리로는 다 알고 있는 부분일것이라 생각합니다. 저도 `class`는 reference type 이고,
-`struct`는 value types이다. 라고 알고 있습니다.
+많은 분들이 머리로는 다 알고 있는 부분일것이라 생각합니다. 저도 `struct`는 value types 이고, `class`는 reference type 이다. 라고 알고 있습니다.
 
 그게 무슨 뜻일까요? 쉽게 비유하면, 엑셀과 스프레드 시트로 할 수 있습니다.
 ![엑셀스프레드](https://cdn.wallstreetmojo.com/wp-content/uploads/2018/12/Excel-vs-Google-Sheets.jpg)
 
-여러분이 하나의 엑셀을 만들고 다른 동료에게 보내고 난 다음에, 그 엑셀이 어떻게 되었는지는 관심도 없고 나에게 영향을 주지 않죠. 하지만 내가 스프레드 시트를 만들어서 전해주면, 다른사람이 내가 만든 결과물에 영향을 줄 수 있습니다.
+여러분이 하나의 엑셀을 만들고 다른 동료에게 보내고 난 다음에, 그 엑셀이 어떻게 되었는지는 관심도 없고 나에게 영향을 주지 않죠. 하지만 내가 스프레드 시트를 만들어서 전해주는 케이스를 생각해보겠습니다. 다른사람이 그 스프레드 시트를 수정한다면, 내가 만든 결과물이 수정되고 또 영향을 줄 수 있습니다.
 
 너무 동떨어진 예제라면 아래 코드로 이해해 보도록 하겠습니다.
 
@@ -33,8 +31,8 @@ print(firstStudent.name, firstStudent.age) // Leeo_student 17
 print(secondStudent.name, secondStudent.age) // batgird_student 18
 
 ```
-처음에 생성하고 바로 출력해보면, 생성한 결과가 나오니 이상하진 않습니다. 그리고 두번째 변수를 만들어서 대입해주고, 값을 할당 해줍니다.
-그리고 다시 두 변수 다 출력 해보면, 우리가 입력한 결과가 출력됩니다. 마치 내가 작업하던 엑셀을 복사해서 하나 더 만들어 작업한 것과 같은 상황이죠.
+처음에 생성하고 바로 출력해보면, 생성한 결과가 나오기때문에 이상하진 않습니다. 그리고 두번째 변수를 만들어서 대입해주고, 값을 할당 해줍니다.
+그리고 다시 두 변수 다 출력 해보면, 우리가 입력한 결과가 출력됩니다. 마치 내가 작업하던 엑셀을 복사해서 하나 더 만들어 작업한 것과 같은 상황이죠. 값을 복사해서 새로운 결과물을 만들었습니다. value type입니다.
 
 그렇다면 class는 어떨까요?
 
@@ -62,16 +60,15 @@ secondFriend.age = 28
 print(firstFriend.name, firstFriend.age) // batgird 28
 print(secondFriend.name, secondFriend.age) // batgird 28
 ```
-내가 바꾼건 `secondFriend`이지만, `firstFriend`과 같은 인스턴스를 바라보고 있기 때문에 영향을 받고 있습니다.
+내가 바꾼건 `secondFriend`이지만, `firstFriend`과 같은 인스턴스를 바라보고 있기 때문에 영향을 받고 있습니다. 인스턴스를 참조 하고있는 reference type 입니다.
 
-여담이지만 `struct`와 다르게 `class`는 `reference type` 이기에 메모리 관리가 필요합니다. 그래서 다 사용하고나면, 메모리의 사용을 줄이기 위해 deinit이 호출됩니다. 다음 예제는 사용 후, deinit까지 호출된 모습입니다.
+여담이지만 `struct`와 다르게 `class`는 `reference type` 이기에 메모리 관리가 필요합니다. 값을 전달해서 사용하는게 아니라, 메모리에 올려놓고 접근해서 관리하고 사용하기 때문입니다. 그래서 다 사용하고나면, 메모리의 사용을 줄이기 위해 메모리에서 해제를 해주어야 합니다. 그리고 그 때 deinit이라는 녀석이 호출됩니다. 다음 예제는 메모리에서 해제될 때, deinit까지 호출된 모습입니다.
 
 ```
 var thirdFriend: Friend? = Friend(name: "mizz", age: 32)
 print(thirdFriend!.name, thirdFriend!.age) // mizz 32
 thirdFriend = nil // good bye my friend
 ```
-
 
 이제 차이가 느껴지시나요? 그럼 여기서드는 질문이 하나 있습니다.
 언제 struct, class를 골라써야하나요?
@@ -80,7 +77,7 @@ thirdFriend = nil // good bye my friend
 인스턴스의 데이터를 == 와 같은 비교를 해야하는 순간에는 밸류 타입을 써야합니다.
 
 ```
-struct Point: CustomStringConvertible {
+struct Point: CustomStringConvertible, Equatable {
   var x: Float
   var y: Float
 
@@ -91,10 +88,10 @@ struct Point: CustomStringConvertible {
 ```
 
 ```
-let point1 = Point(x: 2, y: 3)
-let point2 = Point(x: 2, y: 3)
+let postOffice = Point(x: 2, y: 3)
+let market = Point(x: 2, y: 3)
 ```
-위의 예제를 살펴보겠습니다. `point1`과 `point2`가 같은 좌표계이지만 다른 두 위치를 나타낸다는 것을 알고 있습니다.
+위의 예제를 살펴보겠습니다. `postOffice`과 `market`가 같은 좌표이지만 다른 두 위치를 나타낸다는 것을 알고 있습니다. 같은 곳에 다른 두 가게가 있다는 의미로 해석해야 할 것 입니다. 반대로 두 가게가 같은 곳에 있는지 비교도 할 수 있어야겠죠?
 
 같은 형태로 다른 인스턴스를 만들어 내야한다면, `struct`를 쓰면 좋습니다.
 
