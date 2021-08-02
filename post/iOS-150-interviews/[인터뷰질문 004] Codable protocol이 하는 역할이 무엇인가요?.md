@@ -1,7 +1,7 @@
 # [인터뷰질문 004] Codable protocol이 하는 역할이 무엇인가요?
 
-## Cadable이란?
-encodable과 decodable 프로토콜을 모두 채택한 프로토콜 입니다. 데이터를 손쉽게 Json이나 다른 구조화된 데이터로 인코딩 하거나, 파싱할 때 사용합니다.
+## Codable이란?
+Encodable과 Decodable이 합쳐진 타입 별칭입니다. 즉 Encodable과 Decodable을 모두 가지고있죠. 데이터를 손쉽게 Json이나 다른 구조화된 데이터로 인코딩 하거나, 파싱할 때 사용합니다.
 
 ## 예제
 ```
