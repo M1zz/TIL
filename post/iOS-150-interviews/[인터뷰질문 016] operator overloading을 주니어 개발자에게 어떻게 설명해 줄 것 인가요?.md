@@ -19,6 +19,38 @@ print(sum(4.1, 4.2)) // 8.3
 두 숫자의 합을 구하고 싶을 때, 매개별수로 정수와 실수가 들어가야 한다면, 이렇게 한 함수를 오버라이딩해서 사용하는 사람이 편하게 쓸 수 있도록 구현할 수 있습니다.
 
 ## 연산자 오버라이딩
-이름에서 알 수 있듯이, 연산자를 오버라이딩 하는 것 입니다. 
+이름에서 알 수 있듯이, 연산자를 오버라이딩 하는 것 입니다.
+우리가 알고있는 연산자는 다음과 같습니다. `+`, `-`, `/`, `*` 등등...
+그렇다면, 언제 연산자를 오버라이딩 할까요? 아래 예제를 보면서 생각해 보겠습니다.
 
-it allows us to use the same + operator with multiple types, such as integers, strings, doubles, and more. If you want to talk about examples of custom operator overloading, perhaps think about multiplying a CGPoint or something else that’s easy to use in practice.
+```
+struct Point {
+    var x = 0.0
+    var y = 0.0
+}
+
+let p1 = Point(x: 12.3, y: 34.5)
+let p2 = Point(x: 67.2, y: 89.6)
+```
+
+두개의 좌표가 있을 때, 좌표의 합을 구하고 싶다면, 어떻게 해야할까요? 쉽게드는 생각은 `p1 + p2`하면 x는 x끼리 y는 y끼리 더해주었으면 좋겠는데, 실제 돌려보면 `binary operator '+' cannot be applied to two 'Point' operands print(p1 + p2)`와 같은 에러가 발생합니다. 왜냐하면 `+`연산자는 좌표를 더하는 것에 대한 처리가 되어있지 않기 때문입니다. 그렇다면? 위에서 봤던 예제처럼 연산자를 오버라이딩 하면 문제를 해결할 수 있을것 같습니다.
+
+```
+struct Point {
+    var x = 0.0
+    var y = 0.0
+
+     static func +(lhs: Point, rhs: Point) -> (Double, Double) {
+        return (lhs.x + rhs.x, lhs.y + rhs.y)
+    }
+}
+
+let p1 = Point(x: 12.3, y: 34.5)
+let p2 = Point(x: 67.2, y: 89.6)
+
+print(p1 + p2) // (79.5, 124.1)
+```
+위와 같이 `+`연산자를 오버라이딩 하면, 좌표계를 입력받아, x는 x끼리 y는 y끼리 더해진 좌표를 구할 수 있습니다.
+
+## 정리
+오버라이딩을 이해하고, 기존에 만들어져 있는 연산자를 오버라이딩 해서 새로운 매개변수를 연산할 수 있는 연산자로 확장해 보았습니다.
