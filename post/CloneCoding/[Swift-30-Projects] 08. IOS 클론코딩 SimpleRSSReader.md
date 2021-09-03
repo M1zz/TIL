@@ -1,4 +1,4 @@
-# [Swift-30-Projects] 06. IOS 클론코딩 SimpleRSSReader
+# [Swift-30-Projects] 08. IOS 클론코딩 SimpleRSSReader
 
 테이블 뷰를 그리는데 매번 정형화된 데이터는 JSON 이었습니다. 그래서 이번에는 XML Parser를 이용해, RSS를 읽어오는 Reader를 만들었습니다.
 
