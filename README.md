@@ -2,6 +2,9 @@
 
 iOS 개발자가 남긴 공부의 기록입니다.
 
+
+
+
 ## 뷰 공부를 위한 다른 앱들 살펴본 기록
 - [[UXKit] 앱 탐구 생활 - 29CM](https://github.com/M1zz/TIL/blob/master/post/UXKit/%5BUXKit%5D%20앱%20탐구%20생활%20-%2029CM.md)
 
@@ -10,6 +13,12 @@ iOS 개발자가 남긴 공부의 기록입니다.
 - [[UXKit] 앱 탐구 생활 - DarkRoom](https://github.com/M1zz/TIL/blob/master/post/UXKit/%5BUXKit%5D%20앱%20탐구%20생활%20-%20DarkRoom.md)
 
 - [[UXKit] 앱 탐구 생활 - Share the meal](https://github.com/M1zz/TIL/blob/master/post/UXKit/%5BUXKit%5D%20앱%20탐구%20생활%20-%20Share%20the%20meal.md)
+
+
+
+
+
+
 
 ## Swift 언어를 공부하다가 기록
 - [구조체(struct)와 클래스(class) - 업데이트 필요](https://github.com/M1zz/TIL/blob/master/post/Swift/%5Bswift%5D%20구조체(struct)와%20클래스(class).md)
@@ -20,8 +29,10 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 - [struct가 class보다 빠르니까 써야지 근데 왜?](https://github.com/M1zz/TIL/blob/master/post/Swift/struct가%20class보다%20빠르니까%20써야지%20근데%20왜%3F.md)
 
-## SwiftUI로 뷰를 그리다가 기록
-- [[UXKit] 앱 탐구 생활 - 29CM]()
+
+
+
+
 
 ## UIKit으로 뷰를 그리다가 기록
 - [UIkit introduction - User Interface Objects 살펴보기](https://github.com/M1zz/TIL/blob/master/post/iOS/UIkit%20introduction%20-%20User%20Interface%20Objects%20살펴보기.md)
@@ -29,6 +40,11 @@ iOS 개발자가 남긴 공부의 기록입니다.
 - [UINavigationController의 구성요소가 떠오르지 않는 사람을 위한 글](https://github.com/M1zz/TIL/blob/master/post/iOS/UINavigationController의%20구성요소가%20떠오르지%20않는%20사람을%20위한%20글.md)
 
 - [앱의 화면전환이 항상 헷갈릴 때 보는 글](https://github.com/M1zz/TIL/blob/master/post/iOS/%5BiOS%5D%20앱의%20화면전환이%20항상%20헷갈릴%20때%20보는%20글)
+
+
+
+
+
 
 
 ## Network를 다루다가 기록
@@ -39,7 +55,13 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 ## 면접 질문을 답하다가 기록
 
+
+
+
+
+
 ## 개발하다 삽질을 줄이기 위해 기록
+### Xcode 활용
 - [[Xcode] 디버깅 입문](https://github.com/M1zz/TIL/blob/master/post/Dev/%5BXcode%5D%20디버깅%20입문.md)
 
 - [[Xcode] LLDB의 기능 활용해서 디버깅 하기](https://github.com/M1zz/TIL/blob/master/post/Dev/%5BXcode%5D%20LLDB의%20기능%20활용해서%20디버깅%20하기.md)
@@ -52,6 +74,8 @@ iOS 개발자가 남긴 공부의 기록입니다.
 
 - [[Xcode] 단축키 정리](https://github.com/M1zz/TIL/blob/master/post/Dev/%5BXcode%5D%20단축키%20정리.md)
 
+
+### 개발관련
 - [[dev] Hacktober Fest 참가하세요 두 번 하세요!](https://github.com/M1zz/TIL/blob/master/post/Dev/%5Bdev%5D%20Hacktober%20Fest%20참가하세요%20두%20번%20하세요!.md)
 
 - [[dev] Opensource에 기여하기](https://github.com/M1zz/TIL/blob/master/post/Dev/%5Bdev%5D%20Opensource에%20기여하기.md)
@@ -83,8 +107,9 @@ iOS 개발자가 남긴 공부의 기록입니다.
 ### Foundation
 - [[Swift-30-Projects] 01. IOS 클론코딩 GoodAsOldPhones](https://github.com/M1zz/TIL/blob/master/post/CloneCoding/%5BSwift-30-Projects%5D%2001.%20IOS%20클론코딩%20GoodAsOldPhones.md)
 - [[Swift-30-Projects] 02. IOS 클론코딩 Stopwatch](https://github.com/M1zz/TIL/blob/master/post/CloneCoding/%5BSwift-30-Projects%5D%2002.%20IOS%20클론코딩%20Stopwatch.md)
-### UITableView
 
+
+### UITableView
 - [[Swift-30-Projects] 03. IOS 클론코딩 FacebookMe](https://github.com/M1zz/TIL/blob/master/post/CloneCoding/%5BSwift-30-Projects%5D%2003.%20IOS%20클론코딩%20FacebookMe.md)
 
 - [[Swift-30-Projects] 04. IOS 클론코딩 TodoTDD](https://dev200ok.blogspot.com/2021/04/swift-30-projects-03-ios-todotdd.html)
@@ -101,6 +126,11 @@ iOS 개발자가 남긴 공부의 기록입니다.
 ### DesignPattern
 ### Kit
 ### OpenSource
+
+
+
+
+
 
 ## 면접 준비를 하다가 기록
 ### Data
@@ -148,6 +178,12 @@ iOS 개발자가 남긴 공부의 기록입니다.
 - [[인터뷰질문 021] #if 문은 언제 사용되나요?](https://github.com/M1zz/TIL/blob/master/post/iOS-150-interviews/%5B인터뷰질문%20021%5D%20%23if%20문은%20언제%20사용되나요%3F.md)
 
 - [[인터뷰질문 022] 컴파일러용 #error 지시문은 어떤 용도인가요?](https://github.com/M1zz/TIL/blob/master/post/iOS-150-interviews/%5B인터뷰질문%20022%5D%20컴파일러용%20%23error%20지시문은%20어떤%20용도인가요%3F.md)
+
+
+
+
+
+
 
 ## 현타가 와서 쓴 개발자의 일기장
 - [2021 1분기 회고](https://github.com/M1zz/TIL/blob/master/post/Essay/2021%201분기%20회고.md)
