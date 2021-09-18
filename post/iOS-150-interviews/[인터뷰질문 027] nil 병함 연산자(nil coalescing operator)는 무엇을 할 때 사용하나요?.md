@@ -1,30 +1,12 @@
-# [인터뷰질문 026] final 키워드가 하는 역할이 무엇이며, 왜 사용해야 하는건가요?
+# [인터뷰질문 027] nil 병함 연산자(nil coalescing operator)는 무엇을 할 때 사용하나요?
 
-Suggested approach: Think about the underlying goal here: why would you want to say “you cannot inherit from this class”? Is that a good idea? There are good reasons for using it – sometimes a class does something very precise, and you really don’t want users to override important parts of your code.
+nil 병합 연산자인 `??`는 `A ?? B`의 형태로 사용합니다. A가 옵셔널이고 `nil`값이 들어가 있다면, nil 대신 B값을 반환해주는 연산자 입니다. 이 연산자는 옵셔널한 값이 반환되지 않아야 하는 곳에 사용됩니다. 아래의 코드를 예로 들어보겠습니다.
 
+```
+var name: String
+let input: String?
 
- What does the nil coalescing operator do?
- What is the difference between if let and guard let?
- What is the difference between try, try?, and try! in Swift?
- What problem does optional chaining solve?
- What's the difference between String? and String! in Swift?
- When would you use the guard keyword in Swift?
- Apart from the built-in ones, can you give an example of property wrappers?
- Can you give useful examples of enum associated values?
- How would you explain closures to a new Swift developer?
- What are generics and why are they useful?
- What are multi-pattern catch clauses?
- What does the @main attribute do?
- What does the #available syntax do?
- What is a variadic function?
- What is the difference between weak and unowned?
- What is the difference between an escaping closure and a non-escaping closure?
- What is the difference between an extension and a protocol extension?
- When would you use the defer keyword in Swift?
- How would you explain key paths to a new Swift developer?
- What are conditional conformances?
- What are opaque return types?
- What are result builders and when are they used in Swift?
- What does the targetEnvironment() compiler condition do?
- What is the difference between self and Self?
- When would you use @autoclosure?
+name = input ?? "입력이없음"
+```
+
+위와 같이 입력은 있을 수도 있고 없을 수도 있는 상황을 생각해보겠습니다. 이 때 이름은 반드시 있어야 한다면, 입력이 없을 때의 값을 지정할 수 있습니다. 즉 nil 병합 연산자를 이용해서 옵셔널 값이 비었을 때의 값을 지정해 주면, nil값이 반환되지 않습니다.

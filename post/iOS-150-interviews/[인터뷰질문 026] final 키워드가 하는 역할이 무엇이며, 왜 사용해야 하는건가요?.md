@@ -1,30 +1,28 @@
 # [인터뷰질문 026] final 키워드가 하는 역할이 무엇이며, 왜 사용해야 하는건가요?
 
-Suggested approach: Think about the underlying goal here: why would you want to say “you cannot inherit from this class”? Is that a good idea? There are good reasons for using it – sometimes a class does something very precise, and you really don’t want users to override important parts of your code.
+final 키워드가 하는 역할에 대해 모호함이 있다면, 사용하고 하지 않을 때 어떤 일이 일어날지를 생각해 보면 좋습니다.
 
+## final이 없다면?
+사실 final이 있는 프로젝트에서 final을 모두 제거해도 아무런 문제가 없을 것 이라고 확신합니다. 문제가 없어야 정상인 것이겠죠. final은 상속을 하지못하게 막는 키워드 라고 합니다. 하지만 실제로 제가 이 `final`이라는 키워드를 사용할 때에는 혹시나 일어날 휴먼에러를 막기 위해서 입니다.
 
- What does the nil coalescing operator do?
- What is the difference between if let and guard let?
- What is the difference between try, try?, and try! in Swift?
- What problem does optional chaining solve?
- What's the difference between String? and String! in Swift?
- When would you use the guard keyword in Swift?
- Apart from the built-in ones, can you give an example of property wrappers?
- Can you give useful examples of enum associated values?
- How would you explain closures to a new Swift developer?
- What are generics and why are they useful?
- What are multi-pattern catch clauses?
- What does the @main attribute do?
- What does the #available syntax do?
- What is a variadic function?
- What is the difference between weak and unowned?
- What is the difference between an escaping closure and a non-escaping closure?
- What is the difference between an extension and a protocol extension?
- When would you use the defer keyword in Swift?
- How would you explain key paths to a new Swift developer?
- What are conditional conformances?
- What are opaque return types?
- What are result builders and when are they used in Swift?
- What does the targetEnvironment() compiler condition do?
- What is the difference between self and Self?
- When would you use @autoclosure?
+정확하게는 상속을 못하게 막는다기 보다는, 설계상 더 이상 상속되지 않았으면 하는 클래스에 표시할 때 사용합니다. 그리고 상속되지 않은 클래스 라는 것을 인지할 때도 사용합니다. 아래 코드로 예를 들어보겠습니다.
+
+```
+class Animal {
+  let name
+}
+
+final class Cat: Animal {
+  let masterName: String
+}
+
+class Fish: Animal {
+  let eggCount: Int
+}
+```
+
+만약 final이 붙어있지 않은 `Fish`라는 클래스를 수정한다면, 어딘가에서 상속해서 구현을 했다면 내가 생각하지 못한 버그가 발생할 수 있습니다. 즉 영향도를 가지기 때문에 영향을 받는 코드들을 살펴봐야합니다.
+
+하지만 `final`이 붙은 Cat 클래스의 경우에는, 아무데서도 상속하지 않았기 때문에 좀 더 마음편하게 수정할 수 있습니다.(물론 다른 코드에 영향을 주지 않는다는 말 입니다.)
+
+그래서 개인적으로 실행 결과에 영향을 주지 않아도 다음에 작업할 나를 위해서, 아무도 상속하고 있지 않고, 무언가를 상속해서 구현한 코드의 경우 보일 때마다 final을 붙여 놓습니다.
