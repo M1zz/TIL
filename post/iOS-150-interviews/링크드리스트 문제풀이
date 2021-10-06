@@ -1,0 +1,108 @@
+1. 거꾸로 출력하기
+문제
+```
+1 -> 2 -> 3 -> nil
+
+// should print out the following:
+3
+2
+1
+```
+
+해답
+```
+for _ in list {
+    print(list.removeLast()!)
+}
+```
+removeLast를 하면 마지막 엘리먼트를 제거하면서 그 값을 반환한다. -> 대신 다시 데이터를 쓰지 못한다
+
+```
+public func printInReverse<T>(with list: LinkedList<T>) {
+        printInReverse(list.head)
+}
+
+private func printInReverse<T>(_ node: Node<T>?) {
+      guard let node = node else { return }
+      printInReverse(node.next)
+      print(node.value)
+}
+```
+head를 넘겨주고, 그 head로 따라 내려가면서 재귀 함수로 출력한다.
+
+2. 중간 노드 출력하기
+문제
+```
+1 -> 2 -> 3 -> 4 -> nil
+// middle is 3
+
+1 -> 2 -> 3 -> nil
+// middle is 2
+```
+노드의 중간 값을 출력하기 위해서는 노드를 순회하는 포인터와, 그것보다 2배 느리게 순회하는 포인터를 만들어 n과 n/2로 순회하도록 해서 n/2 즉, 중간 값을 구해봅니다.
+
+
+```
+func getMiddle<T>(_ list: LinkedList<T>) -> Node<T>? {
+    var slow = list.head
+    var fast = list.head
+
+    while let nextFast = fast?.next {
+        fast = nextFast.next
+        slow = slow?.next
+    }
+
+    return slow
+}
+```
+
+
+3. 링크드 리스트 뒤집기
+문제
+```
+// before
+1 -> 2 -> 3 -> nil
+
+// after
+3 -> 2 -> 1 -> nil
+```
+만들어진 링크드 리스트를 거꾸로 만들어야 합니다.
+
+해답
+```
+mutating func reverse() {
+    var tempList = LinkedList<Value>()
+
+    for value in self {
+        tempList.push(value)
+    }
+
+    head = tempList.head
+}
+```
+링크드 리스트를 순회하면서, push 합니다. 그러면 맨 처음에 있던 노드는 맨 마지막으로 갑니다. 그리고 head를 push 한 리스트의 head로 바꿔주면 뒤집힌 리스트가 됩니다.
+
+
+4. 두개의 리스트 합치기
+문제
+```
+// list1
+1 -> 4 -> 10 -> 11
+
+// list2
+-1 -> 2 -> 3 -> 6
+
+// merged list
+-1 -> 1 -> 2 -> 3 -> 4 -> 6 -> 10 -> 11
+```
+
+5. 모든 항목 제거
+문제
+```
+// original list
+1 -> 3 -> 3 -> 3 -> 4
+
+// list after removing all occurrences of 3
+1 -> 4
+```
+입력한 항목을 리스트에서 제거합니다
