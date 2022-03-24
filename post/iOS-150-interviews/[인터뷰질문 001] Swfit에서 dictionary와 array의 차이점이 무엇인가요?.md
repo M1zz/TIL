@@ -1,5 +1,8 @@
 # [인터뷰질문 001] Swfit에서 dictionary와 array의 차이점이 무엇인가요?
 
+관련주제 : Data
+난이도 : 하
+
 ![arraydictionary](https://docs.swift.org/swift-book/_images/CollectionTypes_intro_2x.png)
 ## 데이터 접근 방식의 차이
 array는 입력된 순서대로 정렬된 값들의 모임이고, dictionary는 입력된 순서대로는 정렬되지 않은 `key-value` 쌍의 값들의 모임입니다.

@@ -1,5 +1,8 @@
 # [인터뷰질문 020] raw strings 이란 무엇인가요?
 
+관련주제 : Swift
+난이도 : 하
+
 ## raw strings
 `raw strings`는 swift5에 추가된 자연스러운 String을 쓰는데 도움을 주는 기능입니다. 지연스러운 String은 어떤 걸까요? 아래의 문자열을 비교해 보겠습니다!
 

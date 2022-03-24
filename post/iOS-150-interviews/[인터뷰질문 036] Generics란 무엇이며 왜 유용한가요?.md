@@ -1,5 +1,8 @@
 # [인터뷰질문 036] Generics란 무엇이며 왜 유용한가요?
 
+관련주제 : Swift
+난이도 : 중
+
 Suggested approach: Generics allow us to create types and functions that can be adapted to use different kinds of data for extra flexibility and safety.
 
 Generics are most commonly used to add type safety to collections – even if you don't create them yourself much, you certainly use them because [String] is really Array<String> under the hood.

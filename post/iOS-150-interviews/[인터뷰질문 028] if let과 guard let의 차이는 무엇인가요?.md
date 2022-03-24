@@ -1,5 +1,8 @@
 # [인터뷰질문 028] if let과 guard let의 차이는 무엇인가요?
 
+관련주제 : Swift
+난이도 : 하
+
 if let과 guard let은 비슷하면서도 느낌이 다릅니다.
 ```
 if let code = optional?.code {

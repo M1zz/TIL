@@ -1,5 +1,8 @@
 # [인터뷰질문 007] Array를 사용할 때, map()과 compactMap()를 쓰는 차이점은 무엇인가요?
 
+관련주제 : Data
+난이도 : 하
+
 ## map vs compactMap
 기본적으로 정의를 알아야 하는 내용이기 때문에, [map](https://developer.apple.com/documentation/swift/sequence/3018373-map)와 [compactMap](https://developer.apple.com/documentation/swift/sequence/2950916-compactmap)의 내용을 보고 기능을 아는 것이 중요할 것 같습니다.
 
